@@ -5,7 +5,6 @@ import userRouter from "./routers/userRouter";
 import globalRouter from "./routers/globalRouter";
 
 const app = express();
-const PORT = 4000;
 const logger = morgan("dev");
 app.use(logger);
 app.set("view engine", "pug");
@@ -14,14 +13,16 @@ app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
 
-const handleListening = () => {
-  console.log(`✅Server listening on port http://localhost:${PORT}`);
-};
-
-app.listen(PORT, handleListening);
+export default app;
 
 /* => 
 globalRouter => /
 userRouter => edit
 videoRouter => watch
+*/
+
+/*
+서버가 하는일
+1. router 연결 
+2. view Engine 연결 (config 설정같은 느낌) + views 디렉토리 set 해놓기 
 */

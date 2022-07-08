@@ -1,21 +1,17 @@
 import express from "express";
 import {
-  see,
-  edit,
-  remove,
-  upload,
-  trending,
+  home,
+  watch,
+  getEdit,
+  postEdit,
   getUpload,
-  postUpload
+  postUpload,
 } from "../controllers/videoController";
 
 const videoRouter = express.Router();
-
-videoRouter.get("/trending", trending);
-videoRouter.get("/upload", upload);
-videoRouter.get("/:id(\\d+)", see); // id란? 동영상의 id를 말한다. // database와 같이 정리해야할 코드
-videoRouter.get("/:id(\\d+)/edit", edit);
-videoRouter.get("/:id(\\d+)/remove", remove);
-videoRouter.route("/Sexupload").get(getUpload).post(postUpload);
+videoRouter.get("/", home);
+videoRouter.get("/:id(\\d+)", watch); // id란? 동영상의 id를 말한다. // database와 같이 정리해야할 코드
+videoRouter.route("/:id(\\d+)/edit").get(getEdit).post(postEdit);
+videoRouter.route("/upload").get(getUpload).post(postUpload);
 
 export default videoRouter;
