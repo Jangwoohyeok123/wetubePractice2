@@ -1,5 +1,6 @@
 import "./db";
 import "./models/Video";
+import "./models/User";
 import app from "./server";
 
 const PORT = 4000;
@@ -11,7 +12,7 @@ const handleListening = () => {
 app.listen(PORT, handleListening);
 
 /* init module 에서 하는 일
-1. db 연결하기  
+1. db 연결하기  + db model 파일들과 연결시켜 놓기 
 2. port 연결하기 
 3. init.js 모듈과 server.js import로 연결시키기
 4. nodemon 이 init으로 script로 연결됨
