@@ -13,7 +13,7 @@ export const postJoin = async (req, res) => {
   }
   const exists = await User.exists({ $or: [{ username }, { email }] });
   if (exists) {
-    return res.status(400).ender("Join", {
+    return res.status(400).render("Join", {
       pageTitle: "Join",
       errorMessage: "This username/email is already taken.",
     });
@@ -52,6 +52,8 @@ export const postLogin = async (req, res) => {
       .status(404)
       .render("login", { pageTitle: "Login", errorMessage: "Wrong password." });
   }
+  req.session.loggedIn = true;
+  req.session.user = user;
   return res.redirect("/");
 };
 
