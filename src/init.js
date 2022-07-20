@@ -1,3 +1,4 @@
+import "dotenv/config";
 import "./db";
 import "./models/Video";
 import "./models/User";
@@ -11,7 +12,7 @@ const handleListening = () => {
 
 app.listen(PORT, handleListening);
 
-/* init module 에서 하는 일
+/* init module 에서 하는 일 1x 2x 
 1. db 연결하기  + db model 파일들과 연결시켜 놓기 
 2. port 연결하기 
 3. init.js 모듈과 server.js import로 연결시키기
