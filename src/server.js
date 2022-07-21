@@ -19,7 +19,7 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: "mongodb://127.0.0.1:27017/wetube" }),
+    store: MongoStore.create({ mongoUrl: "mongodb://localhost:27017/wetube" }),
   })
 );
 
@@ -28,8 +28,6 @@ app.use("/", rootRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
 export default app;
-
-
 
 /* => 
 globalRouter => /

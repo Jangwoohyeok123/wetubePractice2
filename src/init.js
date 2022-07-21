@@ -4,6 +4,9 @@ import "./models/Video";
 import "./models/User";
 import app from "./server";
 
+console.log(process.env.COOKIE_SECRET);
+console.log(process.env.DB_URL);
+
 const PORT = 4000;
 
 const handleListening = () => {
